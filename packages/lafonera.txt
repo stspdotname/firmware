@@ -1,0 +1,52 @@
+-kmod-usb-core
+-kmod-usb2
+-kmod-ledtrig-usbdev
+-kmod-usb-ohci
+-kmod-ppp
+-kmod-usb-serial
+-ppp
+-ppp-mod-pppoe
+-wpad
+-odhcp6c
+
+-kmod-ipt-core
+-kmod-ipt-conntrack
+-libip4tc
+-libip6tc
+-libxtables
+-kmod-ipt-nat
+-kmod-ipt-nathelper
+-firewall
+-kmod-ip6tables
+-iptables
+-ip6tables
+
+# Defaults
+freifunk-berlin-dhcp-defaults
+freifunk-berlin-freifunk-defaults
+freifunk-berlin-network-defaults
+freifunk-berlin-olsrd-defaults
+
+# Common
+dnsmasq
+ip
+iwinfo
+
+# OLSR
+olsrd
+olsrd-mod-arprefresh
+olsrd-mod-txtinfo
+olsrd-mod-jsoninfo
+olsrd-mod-nameservice
+olsrd-mod-watchdog
+kmod-ipip
+
+# IPv6
+kmod-ipv6
+
+# Wifi Driver
+kmod-ath5k
+
+# Swap
+kmod-zram
+zram-swap
