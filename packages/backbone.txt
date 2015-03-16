@@ -4,26 +4,23 @@
 
 # Defaults
 freifunk-berlin-dhcp-defaults
-freifunk-berlin-firewall-defaults
 freifunk-berlin-freifunk-defaults
-freifunk-berlin-migration
 freifunk-berlin-network-defaults
 freifunk-berlin-olsrd-defaults
 freifunk-berlin-statistics-defaults
 freifunk-berlin-uhttpd-defaults
-community-profiles
 
 # Common
+dnsmasq
+
+# Utils
+tcpdump
 mtr
 iperf
 tmux
 vnstat
 ethtool
-dnsmasq
-qos-scripts
-firewall
 iwinfo
-libiwinfo-lua
 
 # GUI
 luci-theme-bootstrap
@@ -32,7 +29,6 @@ uhttpd
 uhttpd-mod-ubus
 uhttpd-mod-tls
 px5g
-luci-app-ffwizard-berlin
 luci-mod-freifunk
 luci-app-olsr
 luci-app-olsr-services
@@ -59,10 +55,6 @@ batctl
 
 # IPv6
 kmod-ipv6
-
-# VPN
-luci-app-openvpn
-openvpn-polarssl
 
 # Statistics
 luci-app-statistics
