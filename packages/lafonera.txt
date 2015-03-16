@@ -8,6 +8,7 @@
 -ppp-mod-pppoe
 -wpad
 -odhcp6c
+-odhcpd
 
 -kmod-ipt-core
 -kmod-ipt-conntrack
