@@ -1,13 +1,15 @@
--kmod-usb-core
--kmod-usb2
+#-kmod-usb-core
+#-kmod-usb2
 -kmod-ledtrig-usbdev
--kmod-usb-ohci
+#-kmod-usb-ohci
 -kmod-ppp
 -kmod-usb-serial
 -ppp
 -ppp-mod-pppoe
 -wpad
+-wpad-mini
 -odhcp6c
+-odhcpd
 
 -kmod-ipt-core
 -kmod-ipt-conntrack
@@ -46,7 +48,12 @@ kmod-ipip
 kmod-ipv6
 
 # Wifi Driver
-kmod-b43
+#kmod-b43
+-iw
+-iwinfo
+-wl
+wlc
+kmod-brcm-wl
 
 # Swap
 kmod-zram
