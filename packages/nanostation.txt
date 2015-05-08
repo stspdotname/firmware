@@ -1,0 +1,41 @@
+-kmod-usb-core
+-kmod-usb2
+-kmod-ledtrig-usbdev
+-kmod-usb-ohci
+-kmod-ppp
+-kmod-usb-serial
+-ppp
+-ppp-mod-pppoe
+-wpad
+-odhcp6c
+
+# Defaults
+freifunk-berlin-dhcp-defaults
+freifunk-berlin-freifunk-defaults
+freifunk-berlin-network-defaults
+freifunk-berlin-olsrd-defaults
+
+# Common
+tcpdump
+ip
+dnsmasq
+qos-scripts
+firewall
+iwinfo
+
+# OLSR
+olsrd
+olsrd-mod-arprefresh
+olsrd-mod-dyn-gw
+olsrd-mod-jsoninfo
+olsrd-mod-txtinfo
+olsrd-mod-nameservice
+olsrd-mod-watchdog
+kmod-ipip
+
+# IPv6
+kmod-ipv6
+
+# Swap
+kmod-zram
+zram-swap
