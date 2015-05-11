@@ -1,6 +1,7 @@
 -ppp
 -ppp-mod-pppoe
--wpad
+-wpad-mini
+wpad
 
 # Defaults
 freifunk-berlin-dhcp-defaults
@@ -16,11 +17,13 @@ dnsmasq
 # Utils
 tcpdump
 mtr
+ip
 iperf
 tmux
 vnstat
 ethtool
 iwinfo
+libiwinfo-lua
 
 # GUI
 luci-theme-bootstrap

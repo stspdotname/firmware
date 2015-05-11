@@ -1,6 +1,7 @@
 -ppp
 -ppp-mod-pppoe
--wpad
+-wpad-mini
+wpad
 
 # Defaults
 freifunk-berlin-dhcp-defaults
@@ -15,6 +16,7 @@ community-profiles
 
 # Common
 mtr
+ip
 iperf
 tmux
 vnstat

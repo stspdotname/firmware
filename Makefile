@@ -71,7 +71,7 @@ patch: stamp-clean-patched .stamp-patched
 $(OPENWRT_DIR)/.config: .stamp-feeds-updated $(TARGET_CONFIG)
 	cp $(TARGET_CONFIG) $(OPENWRT_DIR)/.config
 	$(UMASK); \
-	  $(MAKE) -C openwrt defconfig
+	  $(MAKE) -C $(OPENWRT_DIR) defconfig
 
 # prepare openwrt working copy
 prepare: stamp-clean-prepared .stamp-prepared
@@ -82,7 +82,7 @@ prepare: stamp-clean-prepared .stamp-prepared
 compile: stamp-clean-compiled .stamp-compiled
 .stamp-compiled: .stamp-prepared
 	$(UMASK); \
-	  $(MAKE) -C openwrt $(MAKE_ARGS)
+	  $(MAKE) -C $(OPENWRT_DIR) $(MAKE_ARGS)
 	touch $@
 
 # fill firmwares-directory with:
@@ -101,18 +101,23 @@ firmwares: stamp-clean-firmwares .stamp-firmwares
 	PACKAGES_PATH="$(FW_DIR)/packages"; \
 	for PROFILE in $(PROFILES); do \
 	  for PACKAGES_FILE in $(PACKAGES_LIST_DEFAULT); do \
+	    CUSTOM_POSTINST_PARAM=""; \
 	    if [[ $$PROFILE =~ ":" ]]; then \
 	      SUFFIX="$$(echo $$PROFILE | cut -d':' -f 2)"; \
-	      PACKAGES_SUFFIXED="$$(PACKAGES_FILE)_$$(SUFFIX)"; \
+	      PACKAGES_SUFFIXED="$${PACKAGES_FILE}_$${SUFFIX}"; \
 	      if [[ -f "$$PACKAGES_PATH/$$PACKAGES_SUFFIXED.txt" ]]; then \
 	        PACKAGES_FILE="$$PACKAGES_SUFFIXED"; \
 	        PROFILE=$$(echo $$PROFILE | cut -d':' -f 1); \
 	      fi; \
 	    fi; \
+	    if [[ -f "$$PACKAGES_PATH/$$PACKAGES_FILE.sh" ]]; then \
+	      CUSTOM_POSTINST_PARAM="CUSTOM_POSTINST_SCRIPT=$$PACKAGES_PATH/$$PACKAGES_FILE.sh"; \
+	    fi; \
 	    PACKAGES_FILE_ABS="$$PACKAGES_PATH/$$PACKAGES_FILE.txt"; \
 	    PACKAGES_LIST=$$(grep -v '^\#' $$PACKAGES_FILE_ABS | tr -t '\n' ' '); \
 	    $(UMASK);\
-	    $(MAKE) -C $(IB_BUILD_DIR)/$(IB_DIR) image PROFILE="$$PROFILE" PACKAGES="$$PACKAGES_LIST" BIN_DIR="$(IB_BUILD_DIR)/$(IB_DIR)/bin/$$PACKAGES_FILE" || exit 1; \
+	    echo -e "\n *** Building Kathleen image file for profile $${PROFILE} with packages list from $${PACKAGES_FILE}.\n"; \
+	    $(MAKE) -C $(IB_BUILD_DIR)/$(IB_DIR) image PROFILE="$$PROFILE" PACKAGES="$$PACKAGES_LIST" BIN_DIR="$(IB_BUILD_DIR)/$(IB_DIR)/bin/$$PACKAGES_FILE" $$CUSTOM_POSTINST_PARAM || exit 1; \
 	  done; \
 	done
 	mkdir -p $(FW_TARGET_DIR)
