@@ -1,5 +1,7 @@
+-kmod-usb-core
 -kmod-usb2
 -kmod-ledtrig-usbdev
+-kmod-usb-ohci
 -kmod-ppp
 -kmod-usb-serial
 -ppp
@@ -16,9 +18,15 @@ freifunk-berlin-olsrd-defaults
 
 # Common
 dnsmasq
-qos-scripts
-firewall
+
+# Utils
+#tcpdump
+mtr
 ip
+#iperf
+#tmux
+#vnstat
+#ethtool
 iwinfo
 
 # OLSR
@@ -35,7 +43,7 @@ kmod-ipip
 kmod-ipv6
 
 # Wifi Driver
-kmod-b43
+kmod-b43legacy
 
 # Swap
 kmod-zram
