@@ -1,7 +1,12 @@
+-kmod-usb-core
+-kmod-usb2
+-kmod-ledtrig-usbdev
+-kmod-usb-ohci
+-kmod-ppp
+-kmod-usb-serial
 -ppp
 -ppp-mod-pppoe
--wpad-mini
-wpad
+-wpad
 
 # Defaults
 freifunk-berlin-dhcp-defaults
@@ -15,40 +20,38 @@ freifunk-berlin-uhttpd-defaults
 dnsmasq
 
 # Utils
-tcpdump
+#tcpdump
 mtr
 ip
-iperf
-tmux
-vnstat
-ethtool
+#iperf
+#tmux
+#vnstat
+#ethtool
 iwinfo
 libiwinfo-lua
 
 # GUI
 luci-theme-bootstrap
-#luci-i18n-german
+# Bug in LuCI (missing nixio dependency)
+luci-lib-nixio
 uhttpd
 uhttpd-mod-ubus
-uhttpd-mod-tls
-px5g
-luci-mod-freifunk
+#px5g
+#luci-mod-freifunk
+luci-mod-admin-full
 luci-app-olsr
 luci-app-olsr-services
 luci-app-owm
-luci-app-owm-ant
 luci-app-owm-cmd
-luci-app-owm-gui
+# Bug in luci-app-olsr (missing luci-lib-json dependency)
+luci-lib-json
 
 # OLSR
 olsrd
 olsrd-mod-arprefresh
 olsrd-mod-dyn-gw
 olsrd-mod-jsoninfo
-olsrd-mod-txtinfo
 olsrd-mod-nameservice
-olsrd-mod-watchdog
-freifunk-watchdog
 kmod-ipip
 
 # BATMAN
@@ -59,14 +62,4 @@ batctl
 # IPv6
 kmod-ipv6
 
-# Statistics
-luci-app-statistics
-collectd
-collectd-mod-interface
-collectd-mod-iwinfo
-collectd-mod-network
-collectd-mod-olsrd
-collectd-mod-rrdtool
-collectd-mod-ping
-collectd-mod-uptime
-collectd-mod-memory
+# Statistics/collectd not included in 4MB image
