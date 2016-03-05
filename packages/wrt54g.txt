@@ -31,12 +31,8 @@ iwinfo
 
 # OLSR
 olsrd
-olsrd-mod-arprefresh
-olsrd-mod-dyn-gw
 olsrd-mod-txtinfo
-olsrd-mod-jsoninfo
 olsrd-mod-nameservice
-olsrd-mod-watchdog
 kmod-ipip
 
 # IPv6
