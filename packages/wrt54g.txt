@@ -20,7 +20,7 @@ freifunk-berlin-olsrd-defaults
 dnsmasq
 
 # Utils
-#tcpdump
+tcpdump-mini
 mtr
 ip
 #iperf
